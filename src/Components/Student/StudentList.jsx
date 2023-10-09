@@ -5,8 +5,10 @@ import { changePage, setLoading, setStudentList, setTotalPage } from "../../Acti
 import { Link } from "react-router-dom";
 import Spinner from "../Layout/Spinner";
 const StudentList = () => {
-    const studentStoreState = useSelector((state) => state.studentReducer)
-    const { studentList, loading, currentPage, totalPage, direction } = studentStoreState
+    const stateInStore = useSelector((state) => state)
+    console.log(stateInStore);
+    const { studentList, currentPage, totalPage, direction } = stateInStore.studentReducer
+    const { loading } = stateInStore.loadingReducer;
     const dispatch = useDispatch();
     useEffect(() => {
         try {

@@ -12,7 +12,7 @@ const loadingReducer = (state = initLoadingState, action) => {
             }
 
         default:
-            return new Error("Invalid Loading Action")
+            return state
     }
 }
 
