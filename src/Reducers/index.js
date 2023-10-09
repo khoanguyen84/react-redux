@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import studentReducer  from "./StudentReducer";
-import loadingReducer from './loadingReducer';
+import utilitiesReducer from './utilitiesReducer';
 
 const allReducers = combineReducers({
     studentReducer,
-    loadingReducer
+    utilitiesReducer
 })
 
 

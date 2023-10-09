@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StudentService from "../../Service/studentService";
-import { changePage, setStudentList, setTotalPage } from "../../Actions/studentActions";
+import { changePage, setStudentList, setTotalPage, setLoading, setVisible } from "../../Actions";
 import { Link } from "react-router-dom";
 import Spinner from "../Layout/Spinner";
-import { setLoading } from "../../Actions/loadingAction";
+import CreateStudent from "./CreateStudent";
+import { FaPlus } from 'react-icons/fa';
+
 const StudentList = () => {
     const stateInStore = useSelector((state) => state)
-    console.log(stateInStore);
-    const { studentList, currentPage, totalPage, direction } = stateInStore.studentReducer
-    const { loading } = stateInStore.loadingReducer;
+    // console.log(stateInStore);
+    const { studentList, currentPage, totalPage, direction} = stateInStore.studentReducer
+    const { loading, visibleCreateUser } = stateInStore.utilitiesReducer;
     const dispatch = useDispatch();
     useEffect(() => {
         try {
@@ -32,12 +34,14 @@ const StudentList = () => {
             <section>
                 <div className="d-flex align-items-center">
                     <h3 className="text-success me-3">Student List</h3>
-                    <button className="btn btn-sm btn-outline-success">
-                        <i className="fa fa-plus me-2" />
+                    <button className="btn btn-sm btn-outline-success d-flex align-items-center" onClick={() => dispatch(setVisible(!visibleCreateUser))}>
+                        {/* <i className="fa fa-plus me-2" /> */}
+                        <FaPlus size={15} className="me-2" />
                         Add Student
                     </button>
                 </div>
                 <p className="fst-italic">Deserunt ut pariatur tempor aute incididunt Lorem esse. Pariatur dolore aute esse eu pariatur voluptate in amet excepteur occaecat culpa eiusmod. Non qui labore anim do dolore magna deserunt amet commodo Lorem aliquip.</p>
+                {visibleCreateUser && <CreateStudent />}
             </section>
             <section className="mt-2">
                 {

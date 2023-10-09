@@ -1,10 +1,9 @@
-import { CHANGE_PAGE, SET_LOADING, SET_STUDENT_LIST, SET_TOTAL_PAGE } from "../Actions/constants";
+import { CHANGE_PAGE, SET_STUDENT_LIST, SET_TOTAL_PAGE } from "../Actions/constants";
 
 const initStudentState = {
     studentList: [],
     student: {},
     currentPage: 1,
-    loading: false,
     totalPage: 1,
     direction: ''
 }
@@ -47,12 +46,6 @@ const studentReducer = (state = initStudentState, action) => {
                 ...state,
                 currentPage: _page,
                 direction: action.payload
-            }
-        }
-        case SET_LOADING: {
-            return {
-                ...state,
-                loading: action.payload
             }
         }
         case SET_TOTAL_PAGE: {

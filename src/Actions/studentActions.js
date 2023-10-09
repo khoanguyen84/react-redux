@@ -27,3 +27,4 @@ export const setTotalPage = (payload) => {
         payload: payload
     }
 }
+
