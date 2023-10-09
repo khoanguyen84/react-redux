@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StudentService from "../../Service/studentService";
-import { changePage, setLoading, setStudentList, setTotalPage } from "../../Actions/studentActions";
+import { changePage, setStudentList, setTotalPage } from "../../Actions/studentActions";
 import { Link } from "react-router-dom";
 import Spinner from "../Layout/Spinner";
+import { setLoading } from "../../Actions/loadingAction";
 const StudentList = () => {
     const stateInStore = useSelector((state) => state)
     console.log(stateInStore);

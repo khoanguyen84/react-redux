@@ -1,4 +1,4 @@
-import { ADD_STUDENT, SET_STUDENT_LIST, CHANGE_PAGE, SET_LOADING, SET_TOTAL_PAGE } from "./constants"
+import { ADD_STUDENT, SET_STUDENT_LIST, CHANGE_PAGE, SET_TOTAL_PAGE } from "./constants"
 
 export const addStudent = (payload) => {
     return {
@@ -24,13 +24,6 @@ export const changePage = (payload) => {
 export const setTotalPage = (payload) => {
     return {
         type: SET_TOTAL_PAGE,
-        payload: payload
-    }
-}
-
-export const setLoading = (payload) => {
-    return {
-        type: SET_LOADING,
         payload: payload
     }
 }
